@@ -130,9 +130,22 @@ class AppController {
     res.status(200).json({ quantidade: quantidadeProdutos })
   }
 
-  filtarProtudos = (req, res) => {
-    quantidadeProdutos = this.cEstoque.totalProdutos(this.estoque)
-    res.status(200).json({ quantidade: quantidadeProdutos })
+  filtrarEstoque = (req, res) => {
+    try {
+      const { categoria, precoMin, precoMax } = req.query
+
+      const resultado = this.cEstoque.filtrar(
+        this.estoque,
+        categoria,
+        precoMin ? Number(precoMin) : null,
+        precoMax ? Number(precoMax) : null,
+      )
+
+      res.status(200).json(resultado)
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ erro: 'Erro ao filtrar estoque' })
+    }
   }
 
   // ===== PRODUTOS

@@ -8,12 +8,12 @@ router.get('/estoque', controller.listarEstoque)
 router.get('/estoque/valorTotal', controller.valorEstoque)
 router.get('/estoque/valorMedio', controller.valorMedio)
 router.get('/estoque/quantidade', controller.quantidadetotal)
+router.get('/estoque/filtro', controller.filtrarEstoque)
 
 router.get('/estoque/:id', controller.buscarEstoquePorId)
 router.post('/estoque', controller.adicionarEstoque)
 router.delete('/estoque/:id', controller.deletarEstoque)
 router.put('/estoque/:id', controller.atualizarEstoque)
-
 // PRODUTOS
 
 router.get('/produtos', controller.listarProdutos)
