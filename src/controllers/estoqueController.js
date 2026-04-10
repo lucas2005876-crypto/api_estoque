@@ -130,6 +130,11 @@ class AppController {
     res.status(200).json({ quantidade: quantidadeProdutos })
   }
 
+  filtarProtudos = (req, res) => {
+    quantidadeProdutos = this.cEstoque.totalProdutos(this.estoque)
+    res.status(200).json({ quantidade: quantidadeProdutos })
+  }
+
   // ===== PRODUTOS
 
   listarProdutos = (req, res) => {
